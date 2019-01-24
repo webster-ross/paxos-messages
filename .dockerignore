@@ -1,0 +1,9 @@
+dist
+node_modules
+npm-debug.log
+todo.md
+tests
+README.md
+Dockerfile
+docker-compose.yml
+docker-compose.override.yml
