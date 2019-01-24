@@ -2,14 +2,22 @@
   "name": "messages",
   "version": "1.0.0",
   "scripts": {
+    "predev": "npm run migrate:all",
     "dev": "nodemon --exec babel-node src/index",
     "build": "babel src --out-dir dist",
-    "start": "node dist/index",
-    "serve": "npm run build && npm start"
+    "db-migrate": "babel-node node_modules/.bin/db-migrate",
+    "migrate:all": "npm run db-migrate -- up all",
+    "migrate:reset": "npm run db-migrate -- reset",
+    "prestart": "npm run build && npm run migrate:all",
+    "start": "node dist/index"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "db-migrate": "^0.11.5",
+    "db-migrate-pg": "^0.4.0",
     "express": "^4.16.4",
-    "helmet": "^3.15.0"
+    "helmet": "^3.15.0",
+    "pg": "^7.8.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

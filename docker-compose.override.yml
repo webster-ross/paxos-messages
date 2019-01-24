@@ -6,3 +6,10 @@ services:
       - .:/app
     ports:
       - "8080:8080"
+    environment:
+      PORT: 8080
+      DATABASE_URL: postgres://postgres@db/messages
+  db:
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: messages

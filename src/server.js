@@ -1,14 +1,17 @@
 import express from 'express'
 import helmet from 'helmet'
+import bodyParser from 'body-parser'
+import messages from './messages'
 
 export default () => {
   const app = express()
 
   // setup middlewear
+  app.use(bodyParser.json())
   app.use(helmet())
 
   // setup routes
-  app.get('/', (req, res) => res.json(`Challenge #1 - v${process.env.npm_package_version}`))
+  app.use('/messages', messages)
 
   // default not found handler
   app.use((req, res, next) => {
