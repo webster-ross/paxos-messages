@@ -5,5 +5,8 @@ services:
     image: messages:latest
     depends_on:
       - db
+      - cache
   db:
     image: postgres
+  cache:
+    image: redis

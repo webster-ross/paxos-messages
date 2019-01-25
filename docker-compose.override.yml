@@ -10,6 +10,7 @@ services:
     environment:
       PORT: 8080
       DATABASE_URL: postgres://postgres@db/messages
+      REDIS_URL: redis://cache
   db:
     environment:
       POSTGRES_USER: postgres
